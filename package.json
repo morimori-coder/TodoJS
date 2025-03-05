@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "vitest",
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -c jsdoc.json",
+    "lint": "eslint todo-vita/src --ext .js,.ts"
   }
 }
