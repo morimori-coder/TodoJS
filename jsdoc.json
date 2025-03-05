@@ -1,0 +1,9 @@
+{
+    "source": {
+      "include": ["todo-vita/src"],
+      "exclude": ["node_modules"]
+    },
+    "opts": {
+      "destination": "./docs"
+    }
+  }
