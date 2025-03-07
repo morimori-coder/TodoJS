@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: counter.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,31 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: counter.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 引数で受け取った要素をクリックするとカウントアップするカウンターをセットアップする
+ * @param {HTMLElement} element クリック時にカウントアップする要素
+ */
+export function setupCounter(element) {
+  let counter = 0
+  const setCounter = (count) => {
+    counter = count
+    element.innerHTML = `count is ${counter}`
+  }
+  element.addEventListener('click', () => setCounter(counter + 1))
+  setCounter(0)
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
