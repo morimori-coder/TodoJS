@@ -2,11 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const todoTable = document.getElementById('todoTable').getElementsByTagName('tbody')[0];
     const addButton = document.getElementById('addButton');
   
+  /**
+   * localStorage から TODO リストを読み込み、各項目をテーブルに追加します。
+   *
+   * @function loadTodos
+   */
     function loadTodos() {
       const todos = JSON.parse(localStorage.getItem('todos')) || [];
       todos.forEach(todo => addTodoRow(todo));
     }
   
+    /**
+     * localStorage に TODO リストを保存します。
+     * 
+     * @function saveTodos
+     */
     function saveTodos() {
       const todos = [];
       todoTable.querySelectorAll('tr').forEach(row => {
@@ -18,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   
+    /**
+     * 指定された TODO アイテムの情報を元に、新しいテーブルの行を追加します。
+     * 
+     * @param {Object} todo - TODO アイテムのオブジェクト
+     * @param {string} todo.taskName - タスク名
+     * @param {boolean} todo.isChecked - タスクの実施状態(完了済みかどうか)
+     * @param {string} todo.deadline - タスクの期限
+     * 
+     * @function addTodoRow
+     */
     function addTodoRow(todo) {
       const row = todoTable.insertRow();
       const taskNameCell = row.insertCell(0);
@@ -47,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
       taskActionCell.appendChild(deleteButton);
     }
   
+    /**
+     *「追加」ボタンがクリックされた際にタスク名と期限をユーザーに入力させ、新しい TODO アイテムを追加します。 
+     */
     addButton.addEventListener('click', () => {
       const taskName = prompt('タスク名を入力してください:');
       const deadline = prompt('期限を入力してください:');
