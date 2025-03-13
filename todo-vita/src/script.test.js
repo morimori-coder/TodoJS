@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {checkTodoLength} from "./script";
+import {checkTodoLength} from "./validate";
 
 describe("setupCounter", () => {
   it("should increment the counter on click", () => {
