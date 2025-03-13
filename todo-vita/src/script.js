@@ -1,3 +1,5 @@
+import { checkTodoLength } from './validate.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const todoTable = document.getElementById('todoTable').getElementsByTagName('tbody')[0];
     const addButton = document.getElementById('addButton');
@@ -72,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     addButton.addEventListener('click', () => {
       const taskName = prompt('タスク名を入力してください:');
+      if (!checkTodoLength(taskName)) {
+        alert('タスク名は1文字以上100文字以下で入力してください。');
+        return;
+      }
       const deadline = prompt('期限を入力してください:');
       if (taskName && deadline) {
         const todo = { taskName, isChecked: false, deadline };
@@ -82,4 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     loadTodos();
   });
-  
+
+
+
